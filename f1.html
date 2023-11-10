@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>F1</title>
+	<meta charset="utf-8">
+	<link rel="stylesheet" type="text/css" href="css/style.css">
+	<style>
+		.column {
+			float: left;
+			width: 50%;
+		}
+		.clearfix::after {
+			content: "";
+			clear: both;
+			display: table;
+		}
+	</style>
+</head>
+<body onload="startCountdown()">
+
+	<!-- Haut de Page -->
+	<header>
+		<img src="img/f1.png" width="70">
+		<p>
+			<!-- Page de test (texte) -->
+		</p>
+	</header>
+
+	<!-- Menu de Navigation -->
+
+	<nav class="menu-nav-basketball">
+		<ul>
+			<li class="Acf1">
+				<a href="file:///D:/Cl%C3%A9e%20USB%20Enzo/Syst%C3%A8me%20Num%C3%A9rique/Mon%20Site%20-%20Copie/index.html">
+					Accueil
+				</a>
+				
+			</li>
+			<li class="Baf1">
+				<a href=file:///D:/Cl%C3%A9e%20USB%20Enzo/Syst%C3%A8me%20Num%C3%A9rique/Mon%20Site%20-%20Copie/Basketbal.html>
+					Basketball
+				</a>
+
+			</li>
+			<li class="Fof1">
+				<a href=file:///D:/Cl%C3%A9e%20USB%20Enzo/Syst%C3%A8me%20Num%C3%A9rique/Mon%20Site%20-%20Copie/Football.html>
+					Football
+				</a>
+				
+			
+				
+			</li>
+            <li class="F1f1">
+				<a href=file:///D:/site%20groupe%20enzo/f1.html>
+					Formula 1
+				</a>
+				
+			
+				
+			</li>
+		</ul>
+	</nav>
+  <!-- Clearfix pour éviter les problèmes de mise en page -->
+        <div class="clearfix"></div>
+    </div>
+
+	 
+ <!-- Minuteur -->
+ <div id="countdown">
+	<h2 id="grandPrixLocation">Grand Prix</h2>
+	<div id="timer">00:00:00</div>
+	<div id="startDateTime"></div>
+</div>
+
+<!-- JavaScript pour le minuteur -->
+<script>
+	let countdownInterval;
+	const timerElement = document.getElementById("timer");
+	const grandPrixLocationElement = document.getElementById("grandPrixLocation");
+	const startDateTimeElement = document.getElementById("startDateTime");
+
+	const grandPrixDates = [
+	
+		new Date("2023-11-19T07:00:00"),
+		new Date("2023-11-26T14:00:00"),
+	   
+	   
+	];
+
+	const grandPrixLocations = [
+	
+		"Las Vegas",
+		"Abou Dabi",
+	   
+	   
+	];
+
+	let currentGrandPrix = 0;
+
+	function startCountdown() {
+		const targetDate = grandPrixDates[currentGrandPrix];
+		const targetLocation = grandPrixLocations[currentGrandPrix];
+
+		const now = new Date();
+		const currentTime = now.getTime();
+		const targetTimeMillis = targetDate.getTime();
+
+		if (currentTime >= targetTimeMillis) {
+			currentGrandPrix++;
+			if (currentGrandPrix >= grandPrixDates.length) {
+				alert("Tous les Grands Prix sont terminés.");
+				return;
+			}
+			startCountdown(); // Appel récursif pour passer au prochain Grand Prix
+		}
+
+		const remainingTimeMillis = targetTimeMillis - currentTime;
+		countdownInterval = setInterval(() => {
+			const currentTime = new Date().getTime();
+			const remainingTimeMillis = targetTimeMillis - currentTime;
+
+			if (remainingTimeMillis <= 0) {
+				clearInterval(countdownInterval);
+				startCountdown(); // Passer au prochain Grand Prix une fois terminé
+			} else {
+				const days = String(Math.floor(remainingTimeMillis / 86400000)).padStart(2,"0");
+				const hours = String(Math.floor((remainingTimeMillis % 86400000) / 3600000)).padStart(2, "0");
+				const minutes = String(Math.floor((remainingTimeMillis % 3600000) / 60000)).padStart(2, "0");
+				const seconds = String(Math.floor((remainingTimeMillis % 60000) / 1000)).padStart(2, "0");
+				timerElement.textContent = days + "J" + hours + "h" + minutes + "m" + seconds;
+				const targetYear = targetDate.getFullYear();
+					const targetMonth = targetDate.getMonth();
+					const targetDay = targetDate.getDate();
+					const targetHour = targetDate.getHours();
+					const targetMinute = targetDate.getMinutes();
+					startDateTimeElement.textContent = `Heure de début : ${targetDay}/${targetMonth + 1}/${targetYear} - ${targetHour}:${targetMinute}`;
+					grandPrixLocationElement.textContent = `Grand Prix à : ${targetLocation}`;
+
+			   
+			}
+		}, 1000);
+	}
+</script>
+
+
+
+
+<!-- Gp Qatar -->
+<div id="content">
+    <div class="leftbox">
+        <h1>
+            Grand Prix Du Qatar
+        </h1>
+        <p>
+            <!-- Contenu de la boîte de gauche -->
+        </p>
+    </div>
+
+    <!-- Colonne de gauche pour l'image -->
+    <div class="column">
+        <h2>
+            <a href="https://www.formula1.com/en/results.html/2023/races/1221/qatar/race-result.html"><img src="img/Qatar résult 1.png" width="400" title="gp japon" alt=""></a>	
+        </h2>
+    </div>
+
+    <!-- Colonne de droite pour la vidéo -->
+    <div class="column">
+        <p>
+            <a href="https://www.formula1.com/en/results.html/2023/races/1221/qatar/race-result.html"><img src="img/Qatar résult 2.png" width="400" title="gp japon" alt=""></a>			
+        </p>
+    </div>
+
+    <!-- Clearfix pour éviter les problèmes de mise en page -->
+    <div class="clearfix"></div>
+</div>
+
+	<!-- GP Japon -->
+	<div id="content">
+		<div class="leftbox">
+			<h1>
+				Grand Prix Du Japon
+			</h1>
+			<p>
+				<!-- Contenu de la boîte de gauche -->
+			</p>
+		</div>
+
+		<!-- Colonne de gauche pour l'image -->
+		<div class="column">
+			<h2>
+				<a href="https://www.formula1.com/en/results.html/2023/races/1220/japan/race-result.html"><img src="img/japon result f1.png" width="400" title="gp japon" alt=""></a>	
+				
+			</h2>
+		</div>
+
+		<!-- Colonne de droite pour la vidéo -->
+		<div class="column">
+			<p>
+					<a href="https://www.formula1.com/en/results.html/2023/races/1220/japan/race-result.html"><img src="img/japon result f1 2.png" width="400" title="gp japon" alt=""></a>			
+
+			</p>
+		</div>
+
+		<!-- Clearfix pour éviter les problèmes de mise en page -->
+		<div class="clearfix"></div>
+	</div>
+
+	<!-- Pied de Page -->
+	<footer>
+		<p>
+			2022-2023 - All Right Reserved
+		</p>
+	</footer>
+</body>
+</html>
